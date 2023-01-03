@@ -12,6 +12,7 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+    @actual_calories = @food.calories.to_i * @food.quantity.to_i/100
   end
 
   def new
@@ -30,8 +31,6 @@ class FoodsController < ApplicationController
     @food.name = @product.product_name
     @food.calories = @product.nutriments.to_hash['energy-kcal_100g']
 
-
-
     if @food.save
       redirect_to food_path(@food)
     else
@@ -48,6 +47,6 @@ class FoodsController < ApplicationController
   # end
 
   def food_params
-    params.require(:food).permit(:name, :calories, :code)
+    params.require(:food).permit(:name, :calories, :code, :quantity)
   end
 end
