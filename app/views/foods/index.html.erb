@@ -1,8 +1,11 @@
 <div class="container__index">
-  <h1>Here are the aked food calories</h1>
+  <h1>Tell me what food you gonna eat :</h1>
 
-  <p>Name: <%= @food['product']['generic_name'] %></p>
-  <p>Id: <%= @food['product']['_id'] %></p>
-  <p>Code: <%= @food['code'] %></p>
+  <%= render partial:"shared/form_food", locals: {food: @food} %>
+<!--
+  <p>Name: <%#= @food_h['product']['generic_name'] %></p>
+  <p>Id: <%#= @food_h['product']['_id'] %></p>
+  <p>Code: <%#= @food_h['code'] %></p>
+-->
 
 </div>
