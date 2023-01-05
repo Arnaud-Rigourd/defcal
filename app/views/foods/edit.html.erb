@@ -1,7 +1,7 @@
 <div class="container__page" data-controller="products">
   <%= render "shared/btn_home" %>
 
-  <%= render partial:"shared/form_new_callback", locals: {food: @food} %>
+  <%= render partial:"shared/form_new_callback", locals: {meal: @meal, food: @food} %>
 
   <div class="results">
     <ul>
@@ -11,9 +11,7 @@
     </ul>
   </div>
 
-  <%= render partial:"shared/form_edit", locals: {food: @food} %>
+  <%= render partial:"shared/form_edit", locals: {meal: @meal, food: @food} %>
 
-  <p><%= link_to "Meal completed", food_path(@food) %></p>
+  <p><%= link_to "Meal completed", meal_food_path(@food) %></p>
 </div>
-
-<% console %>
