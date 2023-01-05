@@ -1,0 +1,12 @@
+<div class="container__form">
+
+  <%= simple_form_for(food) do |f| %>
+    <%= f.input :name,
+        placeholder: "ex: chocolate",
+        autofocus: true,
+        required: true
+    %>
+    <%= f.submit "Search" %>
+  <% end %>
+
+</div>

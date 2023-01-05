@@ -1,5 +1,6 @@
 <div class="container__show">
-  <p><%= link_to "Back to home", foods_path %></p>
+  <%= render "shared/btn_home" %>
+
   <h1>You daily calories</h1>
 
   <p>Product: <%= @food.name %></p>
@@ -7,3 +8,5 @@
   <p>Your meal worth <%= @actual_calories %> kcal</p>
 
 </div>
+
+<% console %>

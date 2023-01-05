@@ -1,0 +1,16 @@
+<%= simple_form_for(foods) do |f| %>
+  <%= f.input :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a movie"
+  %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+
+<%# display results %>
+<div id="products">
+  <% products.each do |p| %>
+    <p><%= p.product_name %></p>
+  <% end %>
+</div>

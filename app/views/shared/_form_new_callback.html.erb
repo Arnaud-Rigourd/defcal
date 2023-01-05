@@ -1,0 +1,14 @@
+<div class="container__form">
+
+  <%= simple_form_for(food) do |f| %>
+    <%= f.input :name, value: food.name %>
+    <%= f.submit %>
+  <% end %>
+
+  <%# <form method="post" action="/foods">
+    <label for="name">Ingredient</label>
+    <input type="text" name="pseudo" id="pseudo" value="<%= @food.name %>" />
+    <%# <input type="submit" name="bouton" value="Search" />
+  </form> %> %>
+
+</div>
