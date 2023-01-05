@@ -1,0 +1,19 @@
+<div class="container__page" data-controller="products">
+  <%= render "shared/btn_home" %>
+
+  <%= render partial:"shared/form_new_callback", locals: {food: @food} %>
+
+  <div class="results">
+    <ul>
+      <% @products.each do |p| %>
+        <li data-action="click->products#addInfo" data-products-target="product" data-product-name="<%= p.product_name %>" data-product-code="<%= p.code %>"><%= p.product_name %>, <%= p.code %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= render partial:"shared/form_edit", locals: {food: @food} %>
+
+  <p><%= link_to "Meal completed", food_path(@food) %></p>
+</div>
+
+<% console %>

@@ -1,0 +1,18 @@
+<div class="container__form">
+
+  <%= simple_form_for(food) do |f| %>
+    <%# <div class="name" data-products-target="productName"> %>
+      <%= f.input :name,
+          input_html: {data: {products_target:"productName"}}
+      %>
+    <%# </div> %>
+    <%# <div class="code" data-products-target="productCode"> %>
+      <%= f.input :code,
+          input_html: {data: {products_target:"productCode"}}
+      %>
+    <%# </div> %>
+    <%= f.input :quantity, placeholder:"(g)", required: true %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
