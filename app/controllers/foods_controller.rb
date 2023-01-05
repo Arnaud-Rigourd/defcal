@@ -3,22 +3,13 @@ require 'open-uri'
 require 'openfoodfacts'
 
 class FoodsController < ApplicationController
-  # before_action :set_api, only: [:index]
-  before_action :set_food, only: [:show, :update, :edit]
+  before_action :set_food, only: [:show, :edit, :update]
+  before_action :set_meal, only: [:index, :create, :edit, :update]
 
   def index
-    @foods = Food.all
     @food = Food.new
-
-    # @products = Openfoodfacts::Product.search(@food.name)
-
-    # unless @foods.nil?
-    #   if params[:query].present?
-    #     @products = Product.where("name ILIKE ?", "%#{params[:query]}%")
-    #   else
-    #     @products = @foods
-    #   end
-    # end
+    @foods = Food.all
+    @food.meal = @meal
   end
 
   def new
@@ -27,11 +18,10 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-
-    # @products = Openfoodfacts::Product.search(@food.name)
+    @food.meal = @meal
 
     if @food.save
-      redirect_to edit_food_path(@food)
+      redirect_to edit_meal_food_path(@meal, @food)
     else
       render :new, status: :unprocessable_entity
     end
@@ -51,7 +41,7 @@ class FoodsController < ApplicationController
       # raise
 
       if @food.update(food_params)
-        redirect_to food_path(@food)
+        redirect_to meal_food_path(@meal, @food)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -61,7 +51,7 @@ class FoodsController < ApplicationController
       @products = Openfoodfacts::Product.search(@food.name)
 
       if @food.update(food_params)
-        redirect_to edit_food_path(@food)
+        redirect_to edit_meal_food_path(@meal, @food)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -84,5 +74,9 @@ class FoodsController < ApplicationController
 
   def set_food
     @food = Food.find(params[:id])
+  end
+
+  def set_meal
+    @meal = Meal.find(params[:meal_id])
   end
 end
