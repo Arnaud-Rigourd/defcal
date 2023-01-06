@@ -2,11 +2,12 @@
 
   <%= simple_form_for [meal, food] do |f| %>
     <%= f.input :name,
-        placeholder: "ex: chocolate",
+        label: "Ingrédient",
+        placeholder: "ex: chocolat",
         autofocus: true,
         required: true
     %>
-    <%= f.submit "Search" %>
+    <%= f.submit "Valider" %>
   <% end %>
 
 </div>
