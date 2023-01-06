@@ -1,0 +1,16 @@
+.container__index--food {
+  h4 {
+    opacity: 0;
+    animation: quoteOpacity;
+    animation-delay: 0s;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+
+    font-style: italic;
+  }
+}
+
+.new-food {
+  margin: 15px 0;
+}

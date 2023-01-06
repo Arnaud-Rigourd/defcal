@@ -1,10 +1,20 @@
 <div class="container">
-  <div class="container__index">
+  <div class="container__index--food">
 
     <div class="new-food">
-      <h5>Pour commencer, indique le premier ingrédient de ton repas 👀</h5>
+
+      <% if @meal.foods.length == 0 %>
+        <h5>Commence par l'ingrédient principal de ton repas 👀</h5>
+      <% elsif @meal.foods.length > 4 %>
+        <h5>Qu'est-ce que tu mijotes avec tous ces ingrédients 🤤</h5>
+      <% else %>
+        <h5><%= @quotes.sample %></h5>
+      <% end %>
       <%= render partial:"shared/form_new", locals: {meal: @meal, food: @food} %>
+
     </div>
+
+    <h4>"<%= @chef_quotes.sample %>"</h4>
 
   </div>
 </div>

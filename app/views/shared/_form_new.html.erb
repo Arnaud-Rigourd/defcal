@@ -3,11 +3,11 @@
   <%= simple_form_for [meal, food] do |f| %>
     <%= f.input :name,
         label: "Ingrédient",
-        placeholder: "ex: chocolat",
+        placeholder: "Ingrédient - ex : chocolat",
         autofocus: true,
         required: true
     %>
-    <%= f.submit "Valider" %>
+    <%= f.submit "Valider #{["👩‍🍳", "👨‍🍳"].sample}" %>
   <% end %>
 
 </div>
