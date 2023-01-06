@@ -1,0 +1,15 @@
+<div class="container__page">
+  <h3>You ate:</h3>
+  <ul>
+  <% @foods.each do |f| %>
+    <% @actual_calories = f.calories.to_i * f.quantity.to_i/100 %>
+    <li><%= f.quantity %>g of <%= f.name %>, wich representes <%= @actual_calories %>kcal</li>
+  <% end %>
+  </ul>
+
+  <p><strong>For this meal, you ate <%= @total_calories.sum %>kcal</strong></p>
+
+  <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
+
+  <%= render "shared/btn_landing_page" %>
+</div>

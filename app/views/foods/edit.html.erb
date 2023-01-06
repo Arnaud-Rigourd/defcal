@@ -13,5 +13,5 @@
 
   <%= render partial:"shared/form_edit", locals: {meal: @meal, food: @food} %>
 
-  <p><%= link_to "Meal completed", meal_food_path(@food) %></p>
+  <%= render partial:"shared/btn_meal", locals: {meal: @meal} if @meal.foods.length > 1 %>
 </div>

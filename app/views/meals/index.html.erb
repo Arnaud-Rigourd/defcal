@@ -1,6 +1,1 @@
 <%= link_to "Launch!", meals_path, data: {turbo_method: :post} %>
-
-<%= simple_form_for(@meal) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Launch!" %>
-<% end %>
