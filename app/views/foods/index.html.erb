@@ -1,10 +1,10 @@
-<div class="container container__index">
-  <h1>Bienvenue sur DefCal !</h1>
+<div class="container">
+  <div class="container__index">
 
-  <p>Calcule simplement les calories de tes repas quotidiens</p>
+    <div class="new-food">
+      <h5>Pour commencer, indique le premier ingrédient de ton repas 👀</h5>
+      <%= render partial:"shared/form_new", locals: {meal: @meal, food: @food} %>
+    </div>
 
-  <h5>Pour commencer, indique le premier ingrédient de ton repas :</h5>
-
-  <%= render partial:"shared/form_new", locals: {meal: @meal, food: @food} %>
-
+  </div>
 </div>
