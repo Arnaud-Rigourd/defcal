@@ -1,0 +1,23 @@
+.index-title {
+  h1 {
+    text-align: center;
+  }
+}
+
+#finger-bottom {
+  min-height: 55px;
+  p {
+    font-size: 40px;
+    animation: verticalTranslate 1000ms infinite;
+  }
+}
+
+p {
+  text-align: center;
+}
+
+.container__index {
+  .btn {
+    margin: 10px auto;
+  }
+}

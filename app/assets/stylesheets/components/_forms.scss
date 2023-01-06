@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  label {
+      display: none;
+    }
+
+  input[type=submit] {
+    background-color: white;
+    border: 1px solid orange;
+    color: orange;
+    margin: 5px auto;
+    height: 30px;
+    width: fit-content;
+    padding: 0 15px;
+    border-radius: 25px;
+    // box-shadow: 5px 0 10px #00000026;
+    opacity: 1;
+    transition: opacity 300ms linear;
+  }
+}
+
+input {
+  border-radius: 25px;
+  border: 1px solid grey;
+  font-size: 12px;
+  height: 25px;
+  margin: 5px auto;
+  padding: 0 10px;
+  width: 100%;
+
+  &:focus-visible {
+    border: 1px solid orange;
+  }
+}
