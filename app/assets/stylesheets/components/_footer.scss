@@ -1,0 +1,28 @@
+footer {
+  position: fixed;
+  background-color: rgba(255, 200, 98, 0.807);
+  bottom: 0;
+  width: 100%;
+
+  ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 8px 0;
+
+    li {
+      &:nth-child(even) {
+        font-size: 26px;
+      }
+    }
+
+    a {
+      font-size: 25px;
+      color: #000000;
+
+      &:visited {
+        color: #000000;
+      }
+    }
+  }
+}

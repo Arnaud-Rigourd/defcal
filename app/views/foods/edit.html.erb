@@ -1,8 +1,9 @@
 <div class="container">
   <div class="container__page" data-controller="products">
-    <%= render "shared/btn_home" %>
-
-    <%= render partial:"shared/form_new_callback", locals: {meal: @meal, food: @food} %>
+    <%# <div class="header__edit"> %>
+      <%= render "shared/btn_home" %>
+      <%= render partial:"shared/form_new_callback", locals: {meal: @meal, food: @food} %>
+    <%# </div> %>
 
     <div class="results">
       <ul>
@@ -17,3 +18,4 @@
     <%= render partial:"shared/btn_meal", locals: {meal: @meal} if @meal.foods.length > 1 %>
   </div>
 </div>
+<%= render "shared/footer" %>
