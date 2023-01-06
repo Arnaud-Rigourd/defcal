@@ -1,14 +1,16 @@
-<div class="container__form">
+<div class="container__form--edit">
 
   <%= simple_form_for [meal, food] do |f| %>
       <%= f.input :name,
+          placeholder: "ingrédient",
           input_html: {data: {products_target:"productName"}}
       %>
       <%= f.input :code,
+          placeholder: "code barre",
           input_html: {data: {products_target:"productCode"}}
       %>
-    <%= f.input :quantity, placeholder:"(g)", required: true %>
-    <%= f.submit "Add this product"%>
+    <%= f.input :quantity, placeholder:"quantité (g)", required: true %>
+    <%= f.submit "Ajouter cet ingrédient"%>
   <% end %>
 
 </div>

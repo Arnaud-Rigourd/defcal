@@ -16,3 +16,16 @@
     opacity: 0.8;
   }
 }
+
+.btn-meal {
+  margin: 5px auto;
+  background-color: white;
+  border: 1px solid orangered;
+  box-shadow: none;
+  border-radius: 25px;
+
+  a{
+    color: orangered;
+    font-size: 14px;
+  }
+}

@@ -7,15 +7,15 @@ form {
     }
 
   input[type=submit] {
-    background-color: blue;
-    border: none;
-    color: white;
+    background-color: white;
+    border: 1px solid orange;
+    color: orange;
     margin: 5px auto;
-    height: 37px;
+    height: 30px;
     width: fit-content;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 5px 0 10px #00000026;
+    padding: 0 15px;
+    border-radius: 25px;
+    // box-shadow: 5px 0 10px #00000026;
     opacity: 1;
     transition: opacity 300ms linear;
   }
@@ -24,11 +24,13 @@ form {
 input {
   border-radius: 25px;
   border: 1px solid grey;
+  font-size: 12px;
   height: 25px;
-  padding: 5px;
+  margin: 5px auto;
+  padding: 0 10px;
   width: 100%;
 
   &:focus-visible {
-    border: 1px solid #ffff009f;
+    border: 1px solid orange;
   }
 }
