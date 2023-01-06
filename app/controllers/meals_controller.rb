@@ -3,7 +3,7 @@ class MealsController < ApplicationController
   def index
     @meal = Meal.new
     @meals = Meal.all
-    Meal.destroy_all if Meal.all.present?
+    # Meal.destroy_all if Meal.all.present?
   end
 
   def create
@@ -22,6 +22,12 @@ class MealsController < ApplicationController
     else
       redirect_to meals_path
     end
+  end
+
+  def show
+    @meal = Meal.find(params[:id])
+    @foods = @meal.foods
+    @total_calories = @foods.map { |f| f.calories.to_i * f.quantity.to_i/100 }
   end
 
   private
