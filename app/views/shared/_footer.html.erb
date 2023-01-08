@@ -1,9 +1,15 @@
 <footer>
   <ul>
     <li><%= render "shared/btn_landing_page_footer" %></li>
-    <li>|</li>
+    <%# <li>|</li> %>
     <li><%= render partial:"shared/btn_add_footer", locals:{meal: @meal} %></li>
-    <li>|</li>
+    <%# <li>|</li> %>
     <li><%= render partial:"shared/btn_meal_footer", locals:{meal: @meal} %></li>
+    <li>
+      <p><%= link_to "#" do %>
+        <i class="fa-solid fa-star"></i>
+      <% end %></p>
+    </li>
+    <li><%= render "shared/btn_user_footer" %></li>
   </ul>
 </footer>

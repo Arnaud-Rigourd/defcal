@@ -1,15 +1,21 @@
 .btn {
-  background-color: blue;
+  background-color: whitesmoke;
   width: fit-content;
   padding: 10px 15px;
-  border-radius: 8px;
+  border-radius: 25px;
   box-shadow: 5px 0 10px #00000026;
   opacity: 1;
-  transition: opacity 300ms linear;
+  transition: opacity 300ms linear, background-color 300ms linear, box-shadow 300ms linear;
 
   & > a {
-    color: white;
+    color: orange;
     text-decoration: none;
+
+  }
+
+  &:active {
+    box-shadow: none;
+    background-color: white;
   }
 
   &:hover {

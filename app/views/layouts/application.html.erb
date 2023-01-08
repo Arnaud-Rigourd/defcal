@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% unless params[:controller] == "meals" && params[:action] == "index" %>
+      <%= render "shared/header" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
