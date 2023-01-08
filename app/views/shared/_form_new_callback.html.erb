@@ -1,7 +1,9 @@
 <div class="container__form">
 
   <%= simple_form_for [meal, food] do |f| %>
-    <%= f.input :name, value: food.name %>
+    <%= f.input :name,
+                value: food.name,
+                placeholder: "ingrédient" %>
     <%= f.submit "Refresh 🔍"%>
   <% end %>
 
