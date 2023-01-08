@@ -4,7 +4,7 @@ require 'openfoodfacts'
 
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update]
-  before_action :set_meal, only: [:index, :create, :edit, :update, :show]
+  before_action :set_meal, only: [:index, :create, :edit, :update, :show, :new]
 
   def index
     @food = Food.new

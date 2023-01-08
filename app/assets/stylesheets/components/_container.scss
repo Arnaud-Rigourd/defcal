@@ -9,12 +9,19 @@
   margin: 0 auto;
 }
 
+.container__page {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .container__index {
   height: 45vh;
   width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .container__form {

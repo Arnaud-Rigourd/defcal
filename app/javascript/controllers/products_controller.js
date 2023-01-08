@@ -13,8 +13,18 @@ export default class extends Controller {
   addInfo(e) {
     this.target = e.target
 
+    // autocomplete form
+
     this.productNameTarget.value = `${this.target.dataset.productName}`
 
     this.productCodeTarget.value = `${this.target.dataset.productCode}`
+
+    // Set background color on target
+
+    this.productTargets.forEach((product) => {
+      product.removeAttribute('id', 'active')
+    })
+
+    this.target.setAttribute('id', 'active')
   }
 }

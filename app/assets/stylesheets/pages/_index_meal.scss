@@ -21,3 +21,21 @@ p {
     margin: 10px auto;
   }
 }
+
+.typing {
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 36ch;
+  margin: 0 auto;
+}
+
+.typing-2 {
+  opacity: 0;
+  animation: opacityFrame both, typing 2s steps(22), blink .5s step-end infinite alternate;
+  animation-delay: 2s;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 36ch;
+  margin: 0 auto;
+}
