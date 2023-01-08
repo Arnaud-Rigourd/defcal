@@ -5,6 +5,7 @@ require 'openfoodfacts'
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update]
   before_action :set_meal, only: [:index, :create, :edit, :update, :show, :new]
+  before_action :set_user
 
   def index
     @food = Food.new
@@ -81,5 +82,9 @@ class FoodsController < ApplicationController
 
   def set_meal
     @meal = Meal.find(params[:meal_id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end

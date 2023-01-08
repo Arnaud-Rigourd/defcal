@@ -1,8 +1,9 @@
 class MealsController < ApplicationController
+  before_action :set_user
 
   def index
     @meal = Meal.new
-    @meals = Meal.all
+    @meals = @user.meals
     # Meal.destroy_all if Meal.all.present?
   end
 
@@ -16,6 +17,7 @@ class MealsController < ApplicationController
     end
 
     @meal = Meal.new(name: @name)
+    @meal.user = @user
 
     if @meal.save
       redirect_to meal_foods_path(@meal)
@@ -30,9 +32,18 @@ class MealsController < ApplicationController
     @total_calories = @foods.map { |f| f.calories.to_i * f.quantity.to_i/100 }
   end
 
+  def meals_index
+    @meals = @user.meals
+    @meal = Meal.find(params[:id]) unless params[:id].nil?
+  end
+
   private
 
   def meal_params
     params.require(:meal).permit(:name)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

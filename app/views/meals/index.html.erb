@@ -12,9 +12,13 @@
       <p>👇 </p>
     </div>
 
-    <p class="btn"><%= link_to "C'est parti !", meals_path, data: {turbo_method: :post} %></p>
+    <p class="btn">
+      <% unless @user.nil? %>
+        <%= link_to "C'est parti !", meals_path, data: {turbo_method: :post} %>
+      <% else %>
+        <%= link_to "Connecte toi !", new_user_session_path %>
+      <% end %>
+    </p>
 
   </div>
 </div>
-
-<% console %>
