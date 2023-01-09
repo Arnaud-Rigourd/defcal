@@ -1,15 +1,21 @@
 <div class="container__form--edit">
+  <h3>Il ne te reste plus qu'a indiquer la quantité 👇</h3>
 
   <%= simple_form_for [meal, food] do |f| %>
       <%= f.input :name,
           placeholder: "ingrédient",
-          input_html: {data: {products_target:"productName"}}
+          disabled: true,
+          input_html: {data: {products_target:"productName"}, class:"hidden"}
       %>
       <%= f.input :code,
-          placeholder: "code barre",
-          input_html: {data: {products_target:"productCode"}}
+          placeholder:"code barre",
+          disabled: true,
+          input_html: {data: {products_target:"productCode"}, class:"hidden"}
       %>
-    <%= f.input :quantity, placeholder:"quantité (g)", required: true %>
+    <%= f.input :quantity,
+                placeholder:"quantité (g)",
+                required: true,
+                autofocus: true %>
     <%= f.submit "Ajouter cet ingrédient ✍️"%>
   <% end %>
 

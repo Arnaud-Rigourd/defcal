@@ -53,3 +53,10 @@ input {
     outline: none;
   }
 }
+
+.inputs {
+  display: flex;
+  .inputs-lvl2 {
+    margin: 0 5px;
+  }
+}
