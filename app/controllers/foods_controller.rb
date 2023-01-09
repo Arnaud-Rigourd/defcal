@@ -5,6 +5,8 @@ require 'openfoodfacts'
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update]
   before_action :set_meal, only: [:index, :create, :edit, :update, :show, :new]
+  before_action :set_user
+  before_action :set_api, only: :show
 
   def index
     @food = Food.new
@@ -64,6 +66,7 @@ class FoodsController < ApplicationController
 
   def show
     @actual_calories = @food.calories.to_i * @food.quantity.to_i/100
+    @product_image = @product['product']['image_front_thumb_url']
   end
 
   def search
@@ -81,5 +84,15 @@ class FoodsController < ApplicationController
 
   def set_meal
     @meal = Meal.find(params[:meal_id])
+  end
+
+  def set_user
+    @user = current_user
+  end
+
+  def set_api
+    url = "https://world.openfoodfacts.org/api/v0/product/#{@food.code}.json"
+    product_serialized = URI.open(url).read
+    @product = JSON.parse(product_serialized)
   end
 end

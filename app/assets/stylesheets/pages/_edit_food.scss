@@ -1,14 +1,19 @@
 .results {
-  overflow: scroll;
+  border: 2px solid $header-footer;
+  border-radius: 15px;
   max-height: 250px;
-  border: 1px solid $light-grey;
+  overflow: scroll;
 
   li {
+    font-size: 14px;
     padding: 10px 5px;
-    font-size: 13px;
 
     &:nth-child(odd) {
       background-color: $light-orange;
+    }
+
+    &:nth-child(even) {
+      background-color: $pastel-purple-opacity;
     }
   }
 }

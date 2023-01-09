@@ -1,0 +1,7 @@
+<div class="container">
+  <ul>
+    <% @meals.each do |m| %>
+      <li><%= link_to m.name, meal_path(m) %></li>
+    <% end %>
+  </ul>
+</div>

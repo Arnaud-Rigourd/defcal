@@ -2,7 +2,7 @@
   <div class="container__index">
 
     <div class="index-title">
-      <h1>Bienvenue sur DefCal 👋</h1>
+      <h1>Bienvenue sur <span id='defcal'>DefCal</span> 👋</h1>
       <br />
       <p class="typing">Je vais t'aider à calculer les calories de tes</p>
       <p class="typing-2">repas de chef 👩‍🍳 👨‍🍳</p>
@@ -12,9 +12,13 @@
       <p>👇 </p>
     </div>
 
-    <p class="btn"><%= link_to "C'est parti !", meals_path, data: {turbo_method: :post} %></p>
+    <p class="btn">
+      <% unless @user.nil? %>
+        <%= link_to "C'est parti !", meals_path, data: {turbo_method: :post} %>
+      <% else %>
+        <%= link_to "Connecte toi !", new_user_session_path %>
+      <% end %>
+    </p>
 
   </div>
 </div>
-
-<% console %>

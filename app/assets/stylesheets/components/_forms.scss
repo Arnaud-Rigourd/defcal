@@ -8,10 +8,11 @@ form {
 
   input[type=submit] {
     background-color: white;
-    border: 1px solid orange;
-    color: orange;
+    border: 1px solid $orange-btn;
+    color: $orange-btn;
+    cursor: pointer;
     margin: 5px auto;
-    height: 30px;
+    height: 40px;
     width: fit-content;
     padding: 0 15px;
     border-radius: 25px;
@@ -22,14 +23,33 @@ form {
 
 input {
   border-radius: 25px;
-  border: 1px solid grey;
+  border: 1px solid $header-footer;
   font-size: 16px;
   height: 50px;
   margin: 5px auto;
   padding: 0 20px;
   width: 100%;
+  background-color: $input-bg;
+
+  &::placeholder {
+    color: $header-footer-opacity;
+  }
 
   &:focus-visible {
-    border: 1px solid orange;
+    background-color: $input-bg-focus;
+    border: 2px solid $orange-btn;
+
+    &::placeholder {
+      color: grey;
+    }
+  }
+}
+
+.input,
+.string,
+.food_name,
+.numeric {
+  &:focus-visible {
+    outline: none;
   }
 }

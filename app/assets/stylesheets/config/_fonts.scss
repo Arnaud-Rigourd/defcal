@@ -1,9 +1,21 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
+// Personal fonts
+@font-face {
+  font-family: 'PicNic';
+  src: url('picnic/PicNic-Regular.eot');
+  src: url('picnic/PicNic-Regular.otf') format('otf'),
+        url('picnic/PicNic-Regular.woff') format('woff'),
+        url('picnic/PicNic-Regular.woff2') format('woff2');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Bespoke Slab", "Montserrat", "serif", "sans-serif";
+$headers-font: "Telma" , "cursive", "Nunito", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

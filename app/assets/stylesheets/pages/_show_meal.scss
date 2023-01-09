@@ -1,0 +1,54 @@
+.container.container__meal {
+  justify-content: space-around;
+
+  h2 {
+    text-align: center;
+
+    strong {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        right: 0;
+        background-color: black;
+        animation: underlineMove 1000ms 709ms reverse infinite;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+        transform-origin: right;
+        animation: underlineMove 1000ms infinite;
+      }
+    }
+  }
+
+  .detail {
+
+    p{
+      font-size: 14px;
+      text-align: left;
+    }
+
+    li {
+      font-size: 14px;
+    }
+  }
+
+  .disclaimer {
+
+    p {
+      font-size: 10px;
+      margin: 8px;
+    }
+  }
+}

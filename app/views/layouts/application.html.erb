@@ -6,14 +6,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://api.fontshare.com/v2/css?f[]=telma@900,300,700,500,400&f[]=kalam@700,400,300&f[]=bespoke-slab@700,701,400,401,301,501,300,801,500,800&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <% unless params[:controller] == "meals" && params[:action] == "index" %>
-      <%= render "shared/header" %>
-    <% end %>
-    <%= yield %>
-  </body>
+  <% if params[:controller] == "meals" && params[:action] == "index" %>
+    <body class="overflow-hidden">
+  <% else %>
+    <body>
+  <% end %>
+
+        <%= render "shared/header" %>
+
+      <%= yield %>
+        <%= render "shared/footer" %>
+    </body>
 </html>

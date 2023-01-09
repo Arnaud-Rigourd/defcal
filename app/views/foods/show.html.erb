@@ -1,15 +1,25 @@
-<div class="container__show">
-  <%= render "shared/btn_home" %>
+<div class="container container__show">
+  <%#= render "shared/btn_home" %>
 
-  <h1>You daily calories</h1>
+  <h2>Avec ce produit seul, tu as consommé <span><%= @actual_calories %> kcal</span> <%= ["🧾","👨‍🔬","👩‍🔬"].sample %></h2>
 
-  <p>Product: <%= @food.name %></p>
-  <p>Calories (per 100g): <%= @food.calories %>kcal</p>
-  <p>Your meal worth <%= @actual_calories %> kcal</p>
+  <div class="frame">
+    <h4>Quelques détails supplémentaires :</h4>
+    <br />
+    <div class="food-info">
+      <%= image_tag @product_image, alt: "food image"  %>
 
-  <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
-  <%= render partial:"shared/btn_meal", locals: {meal: @meal} %>
+      <ul>
+        <li><span>Produit</span> : <%= @food.name %></li>
+        <li><span>Calories (pour 100g)</span> : <%= @food.calories %>kcal</li>
+        <li><span>Calories consommées</span> : <%= @actual_calories %> kcal</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="renders">
+    <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
+    <%= render partial:"shared/btn_meal", locals: {meal: @meal} %>
+  </div>
 
 </div>
-
-<%= render "shared/footer" %>

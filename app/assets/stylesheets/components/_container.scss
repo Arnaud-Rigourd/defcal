@@ -1,36 +1,41 @@
 .container {
-  height: 100vh;
-  overflow: scroll;
-  width: 90vw;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
   margin: 0 auto;
+  overflow: scroll;
+  padding: 50px 0;
+  width: 90vw;
+
+  h5,
+  h1 {
+    text-align: center;
+  }
 }
 
 .container__page {
-  height: 90%;
   display: flex;
   flex-direction: column;
+  height: 90%;
   justify-content: space-around;
 }
 
 .container__index {
-  height: 45vh;
-  width: 90%;
   display: flex;
   flex-direction: column;
+  height: 45vh;
   justify-content: space-around;
+  width: 90%;
 }
 
 .container__form {
   margin: 10px auto;
 
-  // label {
-  //   font-size: 14px;
-  //   margin: 0 5px;
-  // }
+  h4 {
+    text-align: center;
+  }
 }
 
 .container__form--edit {

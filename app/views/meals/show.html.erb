@@ -1,18 +1,36 @@
-<div class="container__page">
-  <h3>You ate:</h3>
-  <ul>
-  <% @foods.each do |f| %>
-    <% @actual_calories = f.calories.to_i * f.quantity.to_i/100 %>
-    <li><%= f.quantity %>g of <%= f.name %>, wich representes <%= @actual_calories %>kcal</li>
-  <% end %>
-  </ul>
+<div class="container container__meal">
+  <h2>Ton repas "<%= @meal.name.capitalize %>" contient <strong><%= @total_calories.sum %>kcal</strong></h2>
 
-  <p><strong>For this meal, you ate <%= @total_calories.sum %>kcal</strong></p>
+  <div class="detail frame">
+    <p>Détail :</p>
+    <ul>
+    <% @foods.each do |f| %>
+      <% @actual_calories = f.calories.to_i * f.quantity.to_i/100 %>
+      <li>👉 (<%= f.quantity %>g) <%= f.name.capitalize %>, soit <%= @actual_calories %>kcal</li>
+    <% end %>
+    </ul>
+  </div>
 
-  <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
+  <div class="result-msg">
+    <% if @total_calories.sum < 2200 %>
+      <p>Super ! Tu as encore de la marge 😁 Il te reste environ <%= 2200 - @total_calories.sum %>kcal pour ton prochain repas</p>
+    <% else %>
+      <p>Ce repas semble t'avoir apporté les calories necessaires pour la journée 👌</p>
+    <% end %>
+  </div>
 
-  <%= render "shared/btn_landing_page" %>
+  <div class="renders">
+    <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
+    <%= render "shared/btn_landing_page" %>
+  </div>
+
+  <div class="disclaimer">
+    <p>Rappel : l’apport calorique moyen est de 2200 kcal pour une femme et 2400 kcal pour un homme.</p>
+
+    <p>Tu veux en savoir plus ? Reseigne toi sur https://www.mangerbouger.fr/</p>
+
+    <p>(Cette apli n’est pas sponso par le gouvernement 😅)</p>
+  </div>
+
 
 </div>
-
-<%= render "shared/footer" %>
