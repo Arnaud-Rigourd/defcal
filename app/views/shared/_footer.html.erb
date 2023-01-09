@@ -1,6 +1,9 @@
 <footer>
   <ul>
-    <li><%= render "shared/btn_landing_page_footer" %></li>
+    <% if params[:meal_id].nil? && params[:id].nil? %>
+      <li><%= render "shared/btn_landing_page_footer" %></li>
+    <% end %>
+    <li><%= render "shared/btn_new_meal_footer" %></li>
     <% unless params[:meal_id].nil? && params[:id].nil? %>
       <li><%= render partial:"shared/btn_add_footer", locals:{meal: @meal} %></li>
       <li><%= render partial:"shared/btn_meal_footer", locals:{meal: @meal} %></li>

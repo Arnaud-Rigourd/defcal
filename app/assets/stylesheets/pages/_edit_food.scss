@@ -1,11 +1,11 @@
 .results {
-  overflow: scroll;
-  max-height: 250px;
   border: 1px solid $light-grey;
+  max-height: 250px;
+  overflow: scroll;
 
   li {
+    font-size: 14px;
     padding: 10px 5px;
-    font-size: 13px;
 
     &:nth-child(odd) {
       background-color: $light-orange;

@@ -1,11 +1,16 @@
 .index-title {
   h1 {
     text-align: center;
+
+    #defcal {
+      font-family: $headers-font;
+    }
   }
 }
 
 #finger-bottom {
   min-height: 55px;
+
   p {
     font-size: 40px;
     animation: verticalTranslate 1000ms infinite;

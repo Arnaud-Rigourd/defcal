@@ -1,22 +1,36 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_user
 
   def index
     @meal = Meal.new
-    @meals = @user.meals
+    if user_signed_in?
+      @meals = @user.meals
+    end
     # Meal.destroy_all if Meal.all.present?
   end
 
-  def create
-    @lunch_time = Time.parse("4 pm").strftime("%r")
+  def new
+    @meal = Meal.new
+  end
 
-    if Time.now.strftime("%r") < @lunch_time
-      @name = 'Lunch'
+  def create
+
+    if params[:meal].nil?
+      @lunch_time = Time.parse("4 pm").strftime("%r")
+
+        if Time.now.strftime("%r") < @lunch_time
+          @name = 'Lunch'
+        else
+          @name = 'Diner'
+        end
+
+      @meal = Meal.new(name: @name)
+
     else
-      @name = 'Diner'
+      @meal = Meal.new(meal_params)
     end
 
-    @meal = Meal.new(name: @name)
     @meal.user = @user
 
     if @meal.save

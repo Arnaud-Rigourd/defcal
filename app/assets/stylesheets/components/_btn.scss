@@ -1,5 +1,6 @@
 .btn {
   background-color: whitesmoke;
+  border: 1px solid $orange-btn;
   width: fit-content;
   padding: 10px 15px;
   border-radius: 25px;
@@ -8,9 +9,12 @@
   transition: opacity 300ms linear, background-color 300ms linear, box-shadow 300ms linear;
 
   & > a {
-    color: orange;
+    color: $orange-btn;
     text-decoration: none;
 
+    &:visited {
+      color: $orange-btn;
+    }
   }
 
   &:active {

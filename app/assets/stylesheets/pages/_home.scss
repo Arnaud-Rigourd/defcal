@@ -1,11 +1,16 @@
 * {
+	box-sizing: border-box;
+  font-family: $body-font;
+	list-style: none;
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-	list-style: none;
 
 	a{
     text-decoration: none;
+
+    &:visited {
+      color: black;
+    }
   }
 }
 
@@ -14,6 +19,16 @@
 }
 
 #active {
-  background-color: #ff4400b1;
+  background-color: $header-footer;
   color: white;
+}
+
+body {
+  animation: animatedBackground 7.5s ease-in-out infinite;
+  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);;
+  background-size: 400% 400%;
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
 }
