@@ -53,3 +53,21 @@
     background-position: 0 50%;
   }
 }
+
+@keyframes underlineMoveBefore {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes underlineMove {
+  40% {
+    width: 0;
+  }
+  80% {
+    width: 100%;
+  }
+}

@@ -1,0 +1,34 @@
+.container.container__show {
+  justify-content: space-around;
+
+  h2 {
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  .food-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      margin: 5px;
+    }
+
+    li {
+      font-size: 14px;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.frame {
+  border: 1px solid $header-footer;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: $pastel-purple-opacity;
+}

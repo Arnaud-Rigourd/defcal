@@ -66,7 +66,7 @@ class FoodsController < ApplicationController
 
   def show
     @actual_calories = @food.calories.to_i * @food.quantity.to_i/100
-    @product_image = @product['product']['image_front_small_url']
+    @product_image = @product['product']['image_front_thumb_url']
   end
 
   def search

@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get "/search", to: "foods#search"
 
   get "/dashboard", to: "pages#dashboard"
+  get "/about", to: "pages#about"
 end
