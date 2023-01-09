@@ -1,5 +1,6 @@
 .results {
-  border: 1px solid $light-grey;
+  border: 2px solid $header-footer;
+  border-radius: 15px;
   max-height: 250px;
   overflow: scroll;
 
@@ -9,6 +10,10 @@
 
     &:nth-child(odd) {
       background-color: $light-orange;
+    }
+
+    &:nth-child(even) {
+      background-color: $pastel-purple-opacity;
     }
   }
 }

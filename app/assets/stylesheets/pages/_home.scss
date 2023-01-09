@@ -19,7 +19,7 @@
 }
 
 #active {
-  background-color: $header-footer;
+  background-color: $pastel-purple;
   color: white;
 }
 
@@ -31,4 +31,8 @@ body {
   .overflow-hidden {
     overflow: hidden;
   }
+}
+
+h5 {
+  font-size: 17px;
 }

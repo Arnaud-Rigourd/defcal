@@ -29,14 +29,27 @@ input {
   margin: 5px auto;
   padding: 0 20px;
   width: 100%;
-  background-color: $pastel-purple;
+  background-color: $input-bg;
 
-  &[placeholder] {
+  &::placeholder {
     color: $header-footer-opacity;
   }
 
   &:focus-visible {
-    background-color: $background;
-    border: none;
+    background-color: $input-bg-focus;
+    border: 2px solid $orange-btn;
+
+    &::placeholder {
+      color: grey;
+    }
+  }
+}
+
+.input,
+.string,
+.food_name,
+.numeric {
+  &:focus-visible {
+    outline: none;
   }
 }

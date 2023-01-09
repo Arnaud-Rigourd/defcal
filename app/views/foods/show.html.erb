@@ -1,11 +1,15 @@
-<div class="container__show">
-  <%= render "shared/btn_home" %>
+<div class="container container__show">
+  <%#= render "shared/btn_home" %>
 
-  <h1>You daily calories</h1>
+  <%= image_tag @product_image, alt: "food image"  %>
 
-  <p>Product: <%= @food.name %></p>
-  <p>Calories (per 100g): <%= @food.calories %>kcal</p>
-  <p>Your meal worth <%= @actual_calories %> kcal</p>
+  <h1>Voici les calories contenues dans cet ingrédient</h1>
+
+  <ul>
+    <li>Produit: <%= @food.name %></li>
+    <li>Calories (pour 100g) : <%= @food.calories %>kcal</li>
+    <li>Calories consommées : <%= @actual_calories %> kcal</li>
+  </ul>
 
   <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
   <%= render partial:"shared/btn_meal", locals: {meal: @meal} %>
