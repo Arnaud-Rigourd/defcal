@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="products"
 export default class extends Controller {
-  static targets = ["product", "productName", "productCode"]
+  static targets = ["product", "productName", "productCode", "containerForm", "researchTrigger", "mainTitle"]
 
   connect() {
     // this.productTargets.forEach ((product) => {
@@ -25,6 +25,19 @@ export default class extends Controller {
       product.removeAttribute('id', 'active')
     })
 
-    this.target.setAttribute('id', 'active')
+    if(this.target.nodeName === "LI") {
+      this.target.setAttribute('id', 'active')
+    } else {
+      this.target.parentElement.setAttribute('id', 'active')
+    }
+  }
+
+  display(e) {
+    // Reveal research bar
+    this.containerFormTarget.style = "height: 130px;"
+
+    // Hide h2 & h3
+    this.researchTriggerTarget.style = "opacity: 0;"
+    this.mainTitleTarget.style = "opacity: 0;"
   }
 }

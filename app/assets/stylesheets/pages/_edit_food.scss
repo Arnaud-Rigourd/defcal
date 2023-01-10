@@ -5,8 +5,14 @@
   overflow: scroll;
 
   li {
+    align-items: center;
+    display: flex;
     font-size: 14px;
     padding: 10px 5px;
+
+    img {
+      margin: 0 5px;
+    }
 
     &:nth-child(odd) {
       background-color: $light-orange;
@@ -15,5 +21,24 @@
     &:nth-child(even) {
       background-color: $pastel-purple-opacity;
     }
+  }
+}
+
+.container__page {
+
+  h2 {
+    opacity: 1;
+    transition: opacity 500ms linear;
+  }
+
+  h3 {
+    text-decoration: underline;
+    opacity: 1;
+    transition: opacity 500ms linear;
+  }
+  .container__form {
+    height: 0;
+    overflow: hidden;
+    transition: height 500ms linear;
   }
 }
