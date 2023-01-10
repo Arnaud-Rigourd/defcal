@@ -34,10 +34,13 @@ export default class extends Controller {
 
   display(e) {
     // Reveal research bar
-    this.containerFormTarget.style = "height: 130px;"
+    this.containerFormTarget.style = "height: 180px"
+    this.containerFormTarget.style.transform = "translateY(-50px)"
 
-    // Hide h2 & h3
-    this.researchTriggerTarget.style = "opacity: 0;"
-    this.mainTitleTarget.style = "opacity: 0;"
+    // Hide h2 & h4
+    this.researchTriggerTarget.style = "opacity: 0"
+    this.researchTriggerTarget.style.transform = "translateY(-200px)"
+    this.mainTitleTarget.style = "opacity: 0"
+    this.mainTitleTarget.style.transform = "translateY(-200px)"
   }
 }

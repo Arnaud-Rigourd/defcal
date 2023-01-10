@@ -1,20 +1,13 @@
 <div class="container__form" data-products-target="containerForm">
 
   <%= simple_form_for [meal, food] do |f| %>
-  <div class="inputs">
-    <div class="inputs-lvl2">
       <h4>Complète le nom du produit</h4>
       <%= f.input :name,
                   value: food.name,
                   placeholder: "ingrédient" %>
-    </div>
-
-    <div class="inputs-lvl2">
-      <h4>Indique le code barre</h4>
+      <h4>Indique le code barre (facultatif)</h4>
       <%= f.input :code,
                   placeholder: "code barre" %>
-    </div>
-  </div>
     <%= f.submit "Refresh 🔍"%>
   <% end %>
 

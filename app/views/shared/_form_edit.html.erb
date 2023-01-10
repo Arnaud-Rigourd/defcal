@@ -4,12 +4,10 @@
   <%= simple_form_for [meal, food] do |f| %>
       <%= f.input :name,
           placeholder: "ingrédient",
-          disabled: true,
           input_html: {data: {products_target:"productName"}, class:"hidden"}
       %>
       <%= f.input :code,
           placeholder:"code barre",
-          disabled: true,
           input_html: {data: {products_target:"productCode"}, class:"hidden"}
       %>
     <%= f.input :quantity,
