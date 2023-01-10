@@ -6,7 +6,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update]
   before_action :set_meal, only: [:index, :create, :edit, :update, :show, :new]
   before_action :set_user
-  before_action :set_api, only: :show
+  before_action :set_api, only: [:show]
 
   def index
     @food = Food.new

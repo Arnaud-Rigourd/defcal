@@ -19,6 +19,11 @@ form {
     opacity: 1;
     transition: opacity 300ms linear;
   }
+
+  .sign-in-up {
+    text-align: center;
+    margin: 5px auto;
+  }
 }
 
 input {
@@ -51,5 +56,12 @@ input {
 .numeric {
   &:focus-visible {
     outline: none;
+  }
+}
+
+.inputs {
+  display: flex;
+  .inputs-lvl2 {
+    margin: 0 5px;
   }
 }

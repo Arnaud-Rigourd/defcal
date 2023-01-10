@@ -1,10 +1,13 @@
-<div class="container__form">
-  <h4>Choisi le produit correspondant dans la liste, ou affine ta recherche 👇</h4>
+<div class="container__form" data-products-target="containerForm">
 
   <%= simple_form_for [meal, food] do |f| %>
-    <%= f.input :name,
-                value: food.name,
-                placeholder: "ingrédient" %>
+      <h4>Complète le nom du produit</h4>
+      <%= f.input :name,
+                  value: food.name,
+                  placeholder: "ingrédient" %>
+      <h4>Indique le code barre (facultatif)</h4>
+      <%= f.input :code,
+                  placeholder: "code barre" %>
     <%= f.submit "Refresh 🔍"%>
   <% end %>
 

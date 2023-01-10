@@ -7,7 +7,7 @@
     <h4>Quelques détails supplémentaires :</h4>
     <br />
     <div class="food-info">
-      <%= image_tag @product_image, alt: "food image"  %>
+      <%= image_tag @product_image, alt: "food image" unless @product_image.nil? %>
 
       <ul>
         <li><span>Produit</span> : <%= @food.name %></li>
