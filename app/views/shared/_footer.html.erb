@@ -7,11 +7,13 @@
     <% unless params[:meal_id].nil? && params[:id].nil? %>
       <li><%= render partial:"shared/btn_add_footer", locals:{meal: @meal} %></li>
       <li><%= render partial:"shared/btn_meal_footer", locals:{meal: @meal} %></li>
+<!--
       <li>
-        <p><%= link_to "#" do %>
-          <i class="fa-solid fa-star"></i>
-        <% end %></p>
+        <p><%#= link_to "#" do %>
+          <%# <i class="fa-solid fa-star"></i> %>
+        <%# end %></p>
       </li>
+-->
     <% end %>
     <li><%= render "shared/btn_user_footer" %></li>
   </ul>
