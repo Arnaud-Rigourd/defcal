@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :set_meal, only: [:show, :destroy]
   before_action :set_user
 
   def index
@@ -17,18 +18,19 @@ class MealsController < ApplicationController
   def create
 
     if params[:meal].nil?
-      @lunch_time = Time.parse("4 pm").strftime("%r")
+      @lunch_time = Time.parse("4 pm").strftime("%R")
 
-        if Time.now.strftime("%r") < @lunch_time
-          @name = 'Lunch'
+        if Time.now.strftime("%R") < @lunch_time
+          @name = "Déjeuner du #{Time.now.strftime("%D")}"
         else
-          @name = 'Diner'
+          @name = "Diner du #{Time.now.strftime("%D")}"
         end
 
       @meal = Meal.new(name: @name)
 
     else
       @meal = Meal.new(meal_params)
+      @meal.name = "#{@meal.name} du #{Time.now.strftime('%D')}"
     end
 
     @meal.user = @user
@@ -41,7 +43,6 @@ class MealsController < ApplicationController
   end
 
   def show
-    @meal = Meal.find(params[:id])
     @foods = @meal.foods
     @total_calories = @foods.map { |f| f.calories.to_i * f.quantity.to_i/100 }
   end
@@ -49,6 +50,11 @@ class MealsController < ApplicationController
   def meals_index
     @meals = @user.meals
     @meal = Meal.find(params[:id]) unless params[:id].nil?
+  end
+
+  def destroy
+    @meal.destroy
+    redirect_to meals_index_meals_path
   end
 
   private
@@ -59,5 +65,9 @@ class MealsController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_meal
+    @meal = Meal.find(params[:id])
   end
 end

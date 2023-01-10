@@ -1,0 +1,32 @@
+.container__user-meals {
+  h1 {
+    margin: 15px 0;
+  }
+}
+
+ul {
+  width: 100%;
+
+  .user-meal {
+    border-radius: 50px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: $background-btn;
+    border: 1px solid #00000026;
+
+    a {
+      color: black;
+
+      &:visited {
+        color: black;
+      }
+
+      i {
+        color: red;
+      }
+    }
+  }
+}
