@@ -19,7 +19,12 @@
     <ul>
     <% @foods.each do |f| %>
       <% @actual_calories = f.calories.to_i * f.quantity.to_i/100 %>
-      <li>👉 (<%= f.quantity %>g) <%= f.name.capitalize %>, soit <em><%= @actual_calories %>kcal</em></li>
+      <li>
+        <%= link_to meal_food_path(@meal, f) do %>
+          👉 (<%= f.quantity %>g) <%= f.name.capitalize %>, soit <em><%= @actual_calories %>kcal</em>
+        <% end %>
+      <%= link_to meal_food_path(@meal, f), data: { turbo_method: :delete, turbo_confirm: "Supprimer ce cet ingrédient ?"} do %><i class="fa-solid fa-trash-can"></i><% end %>
+      </li>
     <% end %>
     </ul>
   </div>
@@ -35,6 +40,7 @@
   <div class="renders">
     <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
     <%= render "shared/btn_landing_page" %>
+    <%= render "shared/btn_user_meals" %>
   </div>
 
   <div class="disclaimer">

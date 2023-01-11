@@ -3,8 +3,8 @@ require 'open-uri'
 require 'openfoodfacts'
 
 class FoodsController < ApplicationController
-  before_action :set_food, only: [:show, :edit, :update]
-  before_action :set_meal, only: [:index, :create, :edit, :update, :show, :new]
+  before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :set_meal, only: [:index, :create, :edit, :update, :show, :new, :destroy]
   before_action :set_user
   before_action :set_api, only: [:show]
 
@@ -71,8 +71,18 @@ class FoodsController < ApplicationController
     @product_image = @product['product']['image_front_thumb_url']
   end
 
-  def search
+  def destroy
+    @food.destroy
+
+    if @meal.foods.empty?
+      redirect_to meal_foods_path(@meal)
+    else
+      redirect_to meal_path(@meal)
+    end
   end
+
+  # def search
+  # end
 
   private
 

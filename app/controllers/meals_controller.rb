@@ -7,12 +7,15 @@ class MealsController < ApplicationController
     @meal = Meal.new
     if user_signed_in?
       @meals = @user.meals
+      @last_meal = @meals.last
     end
     # Meal.destroy_all if Meal.all.present?
   end
 
   def new
+    @meals = @user.meals
     @meal = Meal.new
+    @last_meal = @meals.last
   end
 
   def create
@@ -52,6 +55,7 @@ class MealsController < ApplicationController
     @meals = @user.meals
     destroy_empty_meal
     @meal = Meal.find(params[:id]) unless params[:id].nil?
+    @last_meal = @meals.last
   end
 
   def destroy
@@ -75,9 +79,7 @@ class MealsController < ApplicationController
 
   def destroy_empty_meal
     @meals.each do |m|
-      if m.foods.empty?
-        m.destroy
-      end
+      m.destroy if m.foods.empty?
     end
   end
 end

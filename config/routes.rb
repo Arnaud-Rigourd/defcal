@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     collection do
       get :meals_index
     end
-    resources :foods, only: [:index, :new, :create, :show, :edit, :update]
+    resources :foods, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
   get "/search", to: "foods#search"

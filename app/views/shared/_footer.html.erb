@@ -15,6 +15,9 @@
       </li>
 -->
     <% end %>
+    <% if params[:meal_id].nil? && params[:id].nil? && user_signed_in? %>
+      <li><%= render partial:"shared/btn_last_meal_footer", locals: {last_meal: @last_meal} %></li>
+    <% end %>
     <li><%= render "shared/btn_user_footer" %></li>
   </ul>
 </footer>

@@ -1,5 +1,12 @@
 <div class="container container__show">
-  <%#= render "shared/btn_home" %>
+  <div class="toper">
+    <%= render "shared/btn_home" %>
+    <p>
+      <%= link_to meal_food_path(@meal, @food), data: { turbo_method: :delete, turbo_confirm: "Supprimer cet ingrédient ?"} do %>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    </p>
+  </div>
 
   <h2>Avec ce produit seul, tu as consommé <span><%= @actual_calories %> kcal</span> <%= ["🧾","👨‍🔬","👩‍🔬"].sample %></h2>
 
@@ -19,6 +26,7 @@
 
   <div class="renders">
     <%= render partial:"shared/btn_add", locals: {meal: @meal} %>
+    <%= render partial:"shared/btn_edit_food", locals: {meal: @meal, food: @food} %>
     <%= render partial:"shared/btn_meal", locals: {meal: @meal} %>
   </div>
 
