@@ -21,9 +21,9 @@ class MealsController < ApplicationController
       @lunch_time = Time.parse("4 pm").strftime("%R")
 
         if Time.now.strftime("%R") < @lunch_time
-          @name = "Déjeuner du #{Time.now.strftime("%D")}"
+          @name = "Déjeuner du #{Time.now.strftime("%d/%m/%y")}"
         else
-          @name = "Diner du #{Time.now.strftime("%D")}"
+          @name = "Diner du #{Time.now.strftime("%d/%m/%y")}"
         end
 
       @meal = Meal.new(name: @name)
