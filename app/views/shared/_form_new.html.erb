@@ -3,7 +3,7 @@
   <%= simple_form_for [meal, food] do |f| %>
     <%= f.input :name,
         label: "Ingrédient",
-        placeholder: "ingrédient - ex : chocolat",
+        placeholder: "ingrédient - ex : chocolat lindt",
         required: true
     %>
     <%= f.submit "Valider #{["👩‍🍳", "👨‍🍳"].sample}" %>
