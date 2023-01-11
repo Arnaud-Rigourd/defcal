@@ -45,10 +45,12 @@ class MealsController < ApplicationController
   def show
     @foods = @meal.foods
     @total_calories = @foods.map { |f| f.calories.to_i * f.quantity.to_i/100 }
+    @last_food = @foods.last
   end
 
   def meals_index
     @meals = @user.meals
+    destroy_empty_meal
     @meal = Meal.find(params[:id]) unless params[:id].nil?
   end
 
@@ -69,5 +71,13 @@ class MealsController < ApplicationController
 
   def set_meal
     @meal = Meal.find(params[:id])
+  end
+
+  def destroy_empty_meal
+    @meals.each do |m|
+      if m.foods.empty?
+        m.destroy
+      end
+    end
   end
 end

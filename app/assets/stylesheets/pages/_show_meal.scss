@@ -1,6 +1,16 @@
 .container.container__meal {
   justify-content: space-around;
 
+  .toper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
   h2 {
     text-align: center;
 
@@ -49,6 +59,10 @@
     p {
       font-size: 10px;
       margin: 8px;
+
+      a {
+        text-decoration: underline;
+      }
     }
   }
 }

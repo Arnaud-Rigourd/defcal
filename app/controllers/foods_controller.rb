@@ -34,6 +34,8 @@ class FoodsController < ApplicationController
 
   def edit
     @products = Openfoodfacts::Product.search(@food.name)
+    @food.quantity = nil
+    @food.code = nil
   end
 
   def update
