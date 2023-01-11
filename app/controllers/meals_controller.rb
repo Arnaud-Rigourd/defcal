@@ -7,12 +7,15 @@ class MealsController < ApplicationController
     @meal = Meal.new
     if user_signed_in?
       @meals = @user.meals
+      @last_meal = @meals.last
     end
     # Meal.destroy_all if Meal.all.present?
   end
 
   def new
+    @meals = @user.meals
     @meal = Meal.new
+    @last_meal = @meals.last
   end
 
   def create
@@ -21,9 +24,9 @@ class MealsController < ApplicationController
       @lunch_time = Time.parse("4 pm").strftime("%R")
 
         if Time.now.strftime("%R") < @lunch_time
-          @name = "Déjeuner du #{Time.now.strftime("%D")}"
+          @name = "Déjeuner du #{Time.now.strftime("%d/%m/%y")}"
         else
-          @name = "Diner du #{Time.now.strftime("%D")}"
+          @name = "Diner du #{Time.now.strftime("%d/%m/%y")}"
         end
 
       @meal = Meal.new(name: @name)
@@ -45,11 +48,14 @@ class MealsController < ApplicationController
   def show
     @foods = @meal.foods
     @total_calories = @foods.map { |f| f.calories.to_i * f.quantity.to_i/100 }
+    @last_food = @foods.last
   end
 
   def meals_index
     @meals = @user.meals
+    destroy_empty_meal
     @meal = Meal.find(params[:id]) unless params[:id].nil?
+    @last_meal = @meals.last
   end
 
   def destroy
@@ -69,5 +75,11 @@ class MealsController < ApplicationController
 
   def set_meal
     @meal = Meal.find(params[:id])
+  end
+
+  def destroy_empty_meal
+    @meals.each do |m|
+      m.destroy if m.foods.empty?
+    end
   end
 end

@@ -1,4 +1,12 @@
 <div class="container container__user-meals">
+  <div class="toper">
+    <p>
+      <%= link_to dashboard_path do %>
+        <i class="fa-solid fa-circle-left"></i><span> Retour</span>
+      <% end %>
+    </p>
+  </div>
+
   <h1>Mes repas</h1>
   <% if @meals.empty? %>
     <p>Tu n'as pas encore saisi de repas. Commence tout de suite en cliquant 👉 <%= link_to "ici", new_meal_path %></p>
