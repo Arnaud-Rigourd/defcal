@@ -34,7 +34,7 @@ export default class extends Controller {
 
   display(e) {
     // Reveal research bar
-    this.containerFormTarget.style = "height: 180px"
+    this.containerFormTarget.style = "height: 240px"
     this.containerFormTarget.style.transform = "translateY(-50px)"
 
     // Hide h2 & h4
